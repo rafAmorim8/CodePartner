@@ -25,26 +25,25 @@ function db_connect() {
 }
 
 // Handle form submission
-function handle_form_submission() {
+function handle_register_submission() {
   global $pdo;
 
   if($_SERVER["REQUEST_METHOD"] == "POST")
   {
     // TODO
-    $sql='INSERT INTO comments(date, mood, email, commentText) VALUES (:date,:mood, :email, :commentText)';
+    $sql='INSERT INTO users(email, github, password) VALUES (:email, :github, :password)';
     $statement=$pdo->prepare($sql);
-    $statement->bindValue(':date', date('Y-m-d'));
-    $statement->bindValue(':mood', $_POST['mood']);
-    $statement->bindValue(':email', $_POST['email']);
-    $statement->bindValue(':commentText', $_POST['comment']);
+    $statement->bindValue(':email', $_POST['emailInput']);
+    $statement->bindValue(':github', $_POST['github']);
+    $statement->bindValue(':password', $_POST['password']);
     $statement->execute();
   }
 }
 
 // Get all comments from database and store in $comments
-function get_comments() {
+function get_users() {
   global $pdo;
-  global $comments;
+  global $users;
 
   //TODO
   $stmt = $pdo->query('SELECT * FROM comments ORDER BY ID DESC');
@@ -53,14 +52,19 @@ function get_comments() {
   }
 }
 
-// Get unique email addresses and store in $commenters
-function get_commenters() {
-  global $pdo;
-  global $commenters;
+// // Get unique email addresses and store in $commenters
+// function get_commenters() {
+//   global $pdo;
+//   global $commenters;
 
-  //TODO
-  $stmt = $pdo->query('SELECT DISTINCT email FROM comments');
-  while($row = $stmt->fetch(PDO::FETCH_OBJ)){
-    array_push($commenters, $row);
-  }
+//   //TODO
+//   $stmt = $pdo->query('SELECT DISTINCT email FROM comments');
+//   while($row = $stmt->fetch(PDO::FETCH_OBJ)){
+//     array_push($commenters, $row);
+//   }
+// }
+
+// Check if user exists in the database and login
+function handle_login(){
+  
 }

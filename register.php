@@ -18,15 +18,15 @@
           </label>
           <label for="github">
             GITHUB USERNAME*
-            <input type="text" placeholder="Enter your gitHub username" required>
+            <input id="github" type="text" placeholder="Enter your gitHub username" required>
           </label>
           <label for="favoriteTechs">
             TECHS*
-            <input type="text" placeholder="Favorite languages separed by , (comma)" required>
+            <input id="favoriteTechs" type="text" placeholder="Favorite languages separed by , (comma)" required>
           </label>
           <label for="password">
             PASSWORD*
-            <input type="text" placeholder="Type a password" required>
+            <input id="password" type="password" placeholder="Type a password (max 8 characters)" required>
           </label>
           <button type="submit">Signup and Login</button>
           

@@ -10,14 +10,14 @@
       <div class="formSection">
         <h1 class="logo">Code<span>Partner</span></h1>
         <p>Find a coding partner to study and work on projects.</p>
-        <form action="dashboard.php">
+        <form action="index.php" method="POST">
           <label for="emailInput">
             EMAIL*
-            <input id="emailInput" type="email" placeholder="Type your email" required>
+            <input id="emailInput" name="emailInput" type="email" placeholder="Type your email" required>
           </label>
           <label for="password">
             PASSWORD*
-            <input type="text" placeholder="Type your password" required>
+            <input type="password" name="password" placeholder="Type your password" required>
           </label>
           <button type="submit">Login</button>
           
@@ -33,8 +33,16 @@
     </div>
     
     <?php
-      // the_comments();
-      // the_commenters();
-     ?>
+      global $pdo;
+
+      $email = $_POST["emailInput"];
+      $password = $_POST["password"];
+
+      $userInfo = $pdo->query("SELECT * FROM users WHERE email = '$email' AND password = '$password'");
+      
+      $data = $userInfo->fetch(PDO::FETCH_OBJ);
+      
+      echo ' USERINFO = ' . $userInfo . ' DATA = ' . $data;
+    ?>
   </body>
 </html>
