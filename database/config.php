@@ -4,5 +4,4 @@ define('DBHOST', 'localhost');
 define('DBNAME', 'codepartner');
 define('DBUSER', 'root');
 define('DBPASS', '');
-// define('PDO', 'mysql:host='.DBHOST.';dbname='.DBNAME);
- ?>
+?>

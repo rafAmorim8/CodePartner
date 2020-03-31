@@ -1,3 +1,7 @@
+<?php
+  handle_login();
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,19 +11,24 @@
   </head>
   <body>
     <div class="loginContainer">
+      <?php 
+        if(isset($message)){
+          echo $message;
+        }
+      ?>
       <div class="formSection">
         <h1 class="logo">Code<span>Partner</span></h1>
         <p>Find a coding partner to study and work on projects.</p>
-        <form action="index.php" method="POST">
+        <form method="POST">
           <label for="emailInput">
             EMAIL*
-            <input id="emailInput" name="emailInput" type="email" placeholder="Type your email" required>
+            <input id="emailInput" name="emailInput" type="email" placeholder="Type your email" />
           </label>
           <label for="password">
             PASSWORD*
-            <input type="password" name="password" placeholder="Type your password" required>
+            <input type="password" name="password" placeholder="Type your password" />
           </label>
-          <button type="submit">Login</button>
+          <button type="submit" name="login">Login</button>
           
           <a class="registerLink" href="register.php">
             <img src="./assets/log-in.svg" alt="Log in icon">
@@ -31,18 +40,5 @@
         <img src="./assets/peerCoding.png" alt="Peer coding">
       </div>
     </div>
-    
-    <?php
-      global $pdo;
-
-      $email = $_POST["emailInput"];
-      $password = $_POST["password"];
-
-      $userInfo = $pdo->query("SELECT * FROM users WHERE email = '$email' AND password = '$password'");
-      
-      $data = $userInfo->fetch(PDO::FETCH_OBJ);
-      
-      echo ' USERINFO = ' . $userInfo . ' DATA = ' . $data;
-    ?>
   </body>
 </html>
