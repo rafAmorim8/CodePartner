@@ -4,6 +4,6 @@ function showDevs(){
   global $devs;
 
   foreach($devs as $dev){
-    echo '<div type="submit" class="dev-card" name="'.$dev->github.'"></div>';
+    echo '<div class="dev-card" name="'.$dev->github.'"></div>';
   }
 }
