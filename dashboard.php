@@ -38,10 +38,10 @@
       <h2>List of Developers:</h2>
       <div id="devsContainer" class="devsContainer">
         <?php
-          // showDevs();
+          showDevs();
         ?>
         <!-- HARD CODED HERE -->
-        <div class="dev-card">
+        <!-- <div class="dev-card">
           <div class="dev-card-header">
             <img src="https://avatars2.githubusercontent.com/u/24491482?s=400&u=2461be2fd9c26de62007092d95c3acf58470e609&v=4" alt="Rafael">
             <h5>Rafael Amorim</h5>
@@ -82,9 +82,9 @@
           <a href="http://www.github.com">See gitHub</a>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- <script src="./index.js"></script> -->
+    <script src="./index.js"></script>
   </body>
 </html>

@@ -37,6 +37,7 @@ input {
 
 form label {
   font-weight: 500;
+  margin-top: 10px;
 }
 
 form input:focus {
@@ -75,7 +76,6 @@ button:hover {
 .logo {
   color: var(--color-dark);
   font-size: 3em;
-  /* margin-bottom: 50px; */
 }
 
 .logo span {
@@ -92,6 +92,13 @@ button:hover {
   display: flex;
   flex-direction: column;
   margin-top: 30px;
+}
+
+.loginContainer form .form-error,
+.registerContainer form .form-error {
+  color: red;
+  text-align: center;
+  font-weight: bold;
 }
 
 .loginContainer form button {
@@ -124,6 +131,7 @@ button:hover {
   box-shadow: 0 0 60px rgba(0, 0, 0, 0.3);
   padding: 15px;
   border-radius: 6px;
+  animation: slideFromTop 400ms forwards 0s ease;
 }
 
 .registerSection h1 {
@@ -182,9 +190,13 @@ header h3 {
   grid-template-columns: 1fr;
 }
 
+.devsContainer {
+  animation: slideFromTop 400ms forwards 0s ease;
+}
+
 .dashboardContainer h2 {
   text-align: center;
-  font-size: 2em;
+  font-size: 2.3em;
   margin: 40px;
 }
 
@@ -195,10 +207,15 @@ header h3 {
   margin: 20px auto;
   padding: 15px;
   border-radius: 6px;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  transition: box-shadow 200ms ease-in-out;
+}
+
+.dashboardContainer .dev-card:hover {
+  box-shadow: 0 0 20px rgba(108, 99, 255, 0.5);
 }
 
 .dashboardContainer .dev-card .dev-card-header {
@@ -225,6 +242,17 @@ header h3 {
   font-weight: bold;
   text-decoration: none;
   align-self: flex-end;
+}
+
+@keyframes slideFromTop {
+  0% {
+    transform: translateY(-30vh);
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 @media only screen and (min-width: 1024px) {

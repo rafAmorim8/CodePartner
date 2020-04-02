@@ -16,12 +16,12 @@ $(document).ready(function () {
         location = data.location;
         url = data.html_url;
 
-        container.append(`<div class="dev-card-header"></div>`);
+        container.prepend(`<div class="dev-card-header"></div>`);
         container.children(".dev-card-header").append(`<img src=${avatar_url} alt="${name}"/>`);
         container.children(".dev-card-header").append(`<h5>${name}</h5>`);
-        container.append(`<p><strong>Bio: </strong>${bio}</p>`);
-        container.append(`<p><strong>Location: </strong>${location}</p>`);
-        container.append(`<a href=${url}><img class="github-icon" src="./assets/github.svg" alt="Github icon">See gitHub</a>`);
+        container.children(".dev-card-header").after(`<p><strong>Location: </strong>${location}</p>`);
+        container.children(".dev-card-header").after(`<p><strong>Bio: </strong>${bio}</p>`);
+        container.children('#dev-email').after(`<a href=${url}>See gitHub</a>`);
       },
     });
   });
